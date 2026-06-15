@@ -193,6 +193,7 @@ const MouseTiltCard = ({ isAnimating }: { isAnimating: boolean }) => {
 
 export default function KomvosLanding() {
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   useEffect(() => {
     // Loop the hero animation
@@ -276,23 +277,14 @@ export default function KomvosLanding() {
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                 <Download size={20} className="relative z-10 animate-bounce" /> <span className="relative z-10">Download Setup (v0.1.0)</span>
               </a>
-              <a href="https://github.com/sakshamwadhankar/Far-Away" target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold border-2 bg-white/20 backdrop-blur transition-all hover:bg-white/40" style={{ borderColor: colors.accent, color: colors.accent }}>
-                <Settings2 size={20} /> View Documentation
-              </a>
+              <button onClick={() => setIsVideoModalOpen(true)} className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold border-2 bg-white/20 backdrop-blur transition-all hover:bg-white/40" style={{ borderColor: colors.accent, color: colors.accent }}>
+                <Play size={20} fill="currentColor" /> Preview
+              </button>
             </div>
           </FadeIn>
 
           <FadeIn delay={0.2} className="relative w-full h-[500px]">
             <MouseTiltCard isAnimating={isAnimating} />
-            <div className="absolute -bottom-6 -right-6 z-30">
-              <button 
-                onClick={() => setIsAnimating(true)}
-                className="flex items-center gap-2 px-6 py-3 rounded-full font-bold text-white shadow-xl hover:scale-105 active:scale-95 transition-transform" 
-                style={{ backgroundColor: colors.accentHover }}
-              >
-                <Play size={16} fill="currentColor" /> Replay Pipeline
-              </button>
-            </div>
           </FadeIn>
         </div>
       </section>
@@ -504,13 +496,36 @@ export default function KomvosLanding() {
             <span className="opacity-80">© 2026 Komvos. All rights reserved.</span>
           </div>
           <div className="flex gap-8 opacity-80 font-semibold">
-            <a href="#" className="hover:text-[#105439] transition-colors">Privacy</a>
-            <a href="#" className="hover:text-[#105439] transition-colors">Terms</a>
             <a href="https://github.com/sakshamwadhankar/Far-Away" target="_blank" rel="noreferrer" className="hover:text-[#105439] transition-colors">GitHub</a>
-            <a href="#" className="hover:text-[#105439] transition-colors">Twitter</a>
           </div>
         </div>
       </footer>
+
+      {/* Video Modal */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 md:p-10">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="relative w-full max-w-5xl aspect-video bg-black rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 flex items-center justify-center"
+          >
+            <button 
+              onClick={() => setIsVideoModalOpen(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 text-white hover:bg-white hover:text-black transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <video 
+              src="/vid/demoof.mp4" 
+              autoPlay 
+              loop
+              playsInline
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
+      )}
 
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes shimmer {

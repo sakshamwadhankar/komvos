@@ -150,40 +150,42 @@ const MouseTiltCard = ({ isAnimating }: { isAnimating: boolean }) => {
         </div>
         
         {/* Floating Nodes */}
-        <div className="relative w-[400px] h-[300px] pointer-events-none" style={{ transform: "translateZ(80px)" }}>
-          {/* Node 1: Solver (Top Left/Center) */}
-          <NodeMockup title="OpenAI (GPT-4o)" icon={Cloud} type="cloud" active={isAnimating} className="top-0 left-[104px]" />
-          
-          {/* Node 2: Verifier (Middle Right) */}
-          <NodeMockup title="qwen2.5:3b" icon={Cpu} type="local" active={isAnimating} delay="0.5s" className="top-[120px] left-[208px]" />
-          
-          {/* Node 3: Judge (Bottom Left/Center) */}
-          <NodeMockup title="Judge" icon={Network} type="logic" active={isAnimating} delay="1.5s" className="top-[240px] left-[104px]" />
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none" style={{ transform: "translateZ(80px)" }}>
+          <div className="relative w-[400px] h-[300px] scale-[0.65] sm:scale-100 origin-center">
+            {/* Node 1: Solver (Top Left/Center) */}
+            <NodeMockup title="OpenAI (GPT-4o)" icon={Cloud} type="cloud" active={isAnimating} className="top-0 left-[104px]" />
+            
+            {/* Node 2: Verifier (Middle Right) */}
+            <NodeMockup title="qwen2.5:3b" icon={Cpu} type="local" active={isAnimating} delay="0.5s" className="top-[120px] left-[208px]" />
+            
+            {/* Node 3: Judge (Bottom Left/Center) */}
+            <NodeMockup title="Judge" icon={Network} type="logic" active={isAnimating} delay="1.5s" className="top-[240px] left-[104px]" />
 
-          <svg className="absolute inset-0 w-full h-full z-[-1] overflow-visible pointer-events-none">
-            {/* Solver -> Judge (Straight down) */}
-            <path d="M 200 60 L 200 240" fill="none" stroke="#105439" strokeWidth="3" strokeDasharray="6,6" className="opacity-30" />
-            
-            {/* Solver -> Verifier */}
-            <path d="M 200 60 C 200 90, 304 90, 304 120" fill="none" stroke="#105439" strokeWidth="3" strokeDasharray="6,6" className="opacity-30" />
-            
-            {/* Verifier -> Judge */}
-            <path d="M 304 180 C 304 210, 200 210, 200 240" fill="none" stroke="#105439" strokeWidth="3" strokeDasharray="6,6" className="opacity-30" />
-            
-            {isAnimating && !prefersReducedMotion && (
-              <>
-                <circle r="6" fill="#105439" className="shadow-[0_0_15px_#105439]">
-                  <animateMotion dur="1.5s" repeatCount="1" path="M 200 60 L 200 240" />
-                </circle>
-                <circle r="6" fill="#105439" className="shadow-[0_0_15px_#105439]">
-                  <animateMotion dur="0.8s" repeatCount="1" path="M 200 60 C 200 90, 304 90, 304 120" />
-                </circle>
-                <circle r="6" fill="#105439" className="shadow-[0_0_15px_#105439]">
-                  <animateMotion begin="0.8s" dur="0.7s" repeatCount="1" path="M 304 180 C 304 210, 200 210, 200 240" />
-                </circle>
-              </>
-            )}
-          </svg>
+            <svg className="absolute inset-0 w-full h-full z-[-1] overflow-visible pointer-events-none">
+              {/* Solver -> Judge (Straight down) */}
+              <path d="M 200 60 L 200 240" fill="none" stroke="#105439" strokeWidth="3" strokeDasharray="6,6" className="opacity-30" />
+              
+              {/* Solver -> Verifier */}
+              <path d="M 200 60 C 200 90, 304 90, 304 120" fill="none" stroke="#105439" strokeWidth="3" strokeDasharray="6,6" className="opacity-30" />
+              
+              {/* Verifier -> Judge */}
+              <path d="M 304 180 C 304 210, 200 210, 200 240" fill="none" stroke="#105439" strokeWidth="3" strokeDasharray="6,6" className="opacity-30" />
+              
+              {isAnimating && !prefersReducedMotion && (
+                <>
+                  <circle r="6" fill="#105439" className="shadow-[0_0_15px_#105439]">
+                    <animateMotion dur="1.5s" repeatCount="1" path="M 200 60 L 200 240" />
+                  </circle>
+                  <circle r="6" fill="#105439" className="shadow-[0_0_15px_#105439]">
+                    <animateMotion dur="0.8s" repeatCount="1" path="M 200 60 C 200 90, 304 90, 304 120" />
+                  </circle>
+                  <circle r="6" fill="#105439" className="shadow-[0_0_15px_#105439]">
+                    <animateMotion begin="0.8s" dur="0.7s" repeatCount="1" path="M 304 180 C 304 210, 200 210, 200 240" />
+                  </circle>
+                </>
+              )}
+            </svg>
+          </div>
         </div>
 
       </div>

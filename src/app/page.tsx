@@ -240,7 +240,7 @@ export default function KomvosLanding() {
                 <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path>
               </svg>
             </a>
-            <a href="https://github.com/sakshamwadhankar/Far-Away/releases/download/v0.1.0/Komvos.Setup.0.1.0.exe" className="px-6 py-2.5 rounded-full font-bold text-white shadow-[0_10px_20px_rgba(16,84,57,0.2)] hover:shadow-[0_15px_30px_rgba(16,84,57,0.3)] transition-all transform hover:-translate-y-0.5 active:scale-95" style={{ backgroundColor: colors.accent }}>
+            <a href="/download" className="px-6 py-2.5 rounded-full font-bold text-white shadow-[0_10px_20px_rgba(16,84,57,0.2)] hover:shadow-[0_15px_30px_rgba(16,84,57,0.3)] transition-all transform hover:-translate-y-0.5 active:scale-95" style={{ backgroundColor: colors.accent }}>
               Download App
             </a>
           </div>
@@ -275,9 +275,9 @@ export default function KomvosLanding() {
               Stop choosing between expensive cloud multi-agent systems and clunky local terminal scripts. Visually orchestrate Cloud APIs (OpenAI, Anthropic, Google) and local Ollama models in one powerful desktop application.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://github.com/sakshamwadhankar/Far-Away/releases/download/v0.1.0/Komvos.Setup.0.1.0.exe" className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-white text-lg shadow-[0_15px_30px_rgba(16,84,57,0.3)] hover:shadow-[0_20px_40px_rgba(16,84,57,0.4)] transition-all hover:-translate-y-1 relative overflow-hidden group" style={{ backgroundColor: colors.accent }}>
+              <a href="/download" className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold text-white text-lg shadow-[0_15px_30px_rgba(16,84,57,0.3)] hover:shadow-[0_20px_40px_rgba(16,84,57,0.4)] transition-all hover:-translate-y-1 relative overflow-hidden group" style={{ backgroundColor: colors.accent }}>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
-                <Download size={20} className="relative z-10 animate-bounce" /> <span className="relative z-10">Download Setup (v0.1.0)</span>
+                <Download size={20} className="relative z-10 animate-bounce" /> <span className="relative z-10">Download App (v0.1.0)</span>
               </a>
               <button onClick={() => setIsVideoModalOpen(true)} className="flex items-center justify-center gap-2 px-8 py-4 rounded-full font-bold border-2 bg-white/20 backdrop-blur transition-all hover:bg-white/40" style={{ borderColor: colors.accent, color: colors.accent }}>
                 <Play size={20} fill="currentColor" /> Preview
@@ -453,8 +453,8 @@ export default function KomvosLanding() {
           <p className="text-xl font-medium text-[#1b6b4a] mb-12 leading-relaxed">
             Komvos isn't just a UI wrapper. It's a complete paradigm shift. We deliver a fully packaged desktop app powered by an Electron, React, and TypeScript frontend, paired with a Python and FastAPI backend that auto-starts instantly. No terminal scripts, no cloud orchestrator lock-in. Create, run, and even export pipelines with your API secrets automatically scrubbed.
           </p>
-          <a href="https://github.com/sakshamwadhankar/Far-Away/releases/download/v0.1.0/Komvos.Setup.0.1.0.exe" className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full font-bold text-white text-xl shadow-[0_15px_30px_rgba(11,65,43,0.3)] hover:shadow-[0_20px_40px_rgba(11,65,43,0.4)] transition-all hover:-translate-y-1 active:scale-95 group" style={{ backgroundColor: colors.textPrimary }}>
-            Download Windows App 
+          <a href="/download" className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-full font-bold text-white text-xl shadow-[0_15px_30px_rgba(11,65,43,0.3)] hover:shadow-[0_20px_40px_rgba(11,65,43,0.4)] transition-all hover:-translate-y-1 active:scale-95 group" style={{ backgroundColor: colors.textPrimary }}>
+            Download App 
             <motion.div className="group-hover:translate-y-1 transition-transform">
               <Download size={24} />
             </motion.div>
@@ -474,7 +474,7 @@ export default function KomvosLanding() {
             {[
               { phase: "Coming Soon", title: "Distributed Local via Exo", desc: "Currently in development: pool your laptop, desktop, and local network devices via Exo to run massive models in a distributed cluster." },
               { phase: "Planned", title: "Community Marketplace", desc: "A robust ecosystem to discover, share, and import custom pipeline templates and nodes created by the Komvos community." },
-              { phase: "Roadmap", title: "Mac & Linux Installers", desc: "Native support and packaged installers for macOS and Linux operating systems (currently Windows-only)." }
+              { phase: "Released", title: "Mac & Linux Support", desc: "Native support and packaged installers for macOS, Linux, and Windows operating systems are now available." }
             ].map((item, i) => (
               <FadeIn key={i} delay={i * 0.15}>
                 <div className="p-8 rounded-2xl bg-white border border-[#105439]/10 shadow-[0_10px_30px_rgba(0,0,0,0.03)] hover:shadow-[0_15px_40px_rgba(16,84,57,0.1)] transition-shadow relative overflow-hidden h-full">

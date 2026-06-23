@@ -27,7 +27,7 @@ function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-const FadeIn = ({ children, delay = 0, className = "" }: { children: React.ReactNode, delay?: number, className?: string }) => {
+const FadeIn = ({ children, delay = 0, className = "", style }: { children: React.ReactNode, delay?: number, className?: string, style?: React.CSSProperties }) => {
   const prefersReduced = useReducedMotion();
   return (
     <motion.div
@@ -36,6 +36,7 @@ const FadeIn = ({ children, delay = 0, className = "" }: { children: React.React
       viewport={{ once: true, margin: "-10%" }}
       transition={{ duration: 0.7, delay, ease: "easeOut" }}
       className={className}
+      style={style}
     >
       {children}
     </motion.div>
